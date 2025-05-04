@@ -21,4 +21,8 @@ export class ForkState extends GameState {
     public getCommands(): Command[] {
         return this.commands;
     }
+
+    public getStateId(): string {
+        return this.stateId;
+    }
 }

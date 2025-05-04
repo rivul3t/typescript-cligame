@@ -21,12 +21,17 @@ export class GameController {
     private handleCurrentState() {
         const commands = this.gameState.getCommands();
 
+
         this.view.show(this.gameState.getStateDescription());
         commands.forEach((command, idx) => {
             this.view.show(`${idx + 1} - ${command.getCommandDescription()}`);
         });
 
-        this.view.ask('> ', (input) => this.handleUserInput(input));
+        if (commands.length == 0) {
+            this.view.show("Конец игры.");
+        } else {
+            this.view.ask('> ', (input) => this.handleUserInput(input));
+        }
 
 
     }
@@ -37,10 +42,15 @@ export class GameController {
         const commandNumber = parseInt(message);
 
         if (isNaN(commandNumber) || commandNumber <= 0 || commandNumber > commandAmount) {
-            this.view.show("Неправильный ввод");
+            this.view.show("Неправильный ввод. Напиши число, которое стоит перед нужным действием");
             this.handleCurrentState();
+            return;
         }
 
         commands[commandNumber - 1].execute();
+    }
+
+    public getState() {
+        return this.gameState;
     }
 }
