@@ -1,0 +1,28 @@
+🧙‍♂️ Simple command line quest game
+
+📦 Requirements
+
+    Node.js ≥ 16
+
+🔧Setup
+
+Clone the repo
+
+    git clone https://github.com/rivul3t/typescript-cligame.git
+    cd typescript-cligame
+
+Install dependencies
+
+    npm install
+
+Start the game
+    node dist/main.ts
+
+📂 Project Structure
+
+.  
+├── src/
+│ └── main.ts # Main entry point for the game
+├── dist/ # Compiled JS files  
+├── package.json  
+└── tsconfig.json
